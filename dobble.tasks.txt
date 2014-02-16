@@ -1,0 +1,13 @@
+Dobble Tasks
+
+12/09/11 Remove old source files
+12/09/11 Improve first time experience
+12/09/11 Fix mobile site
+12/09/11 Reduce redunency
+12/31/11 Unlink files in ajaxupload, etc
+01/24/12 RUN AS WWW-DATA
+
+Marked as complete:
+!12/09/11 Optimize JS
+!12/09/11 Fix legacy styles
+!12/09/11 Optimize server

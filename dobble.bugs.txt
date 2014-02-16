@@ -1,0 +1,4 @@
+Dobble Bugs
+
+01/04/12 Drag and drop from site: Image names with spaces (should escape)
+01/19/12 Drag and drop "" "" doesn't seem to trigger updating the history feed?

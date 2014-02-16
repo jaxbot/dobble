@@ -1,0 +1,29 @@
+Server {
+	APC {
+		EnableApc = true
+		LoadThread = 2
+		ExpireOnSets = false
+		PurgeFrequency = 4096
+		KeyMaturityThreshold = 20
+		MaximumCapacity = 0
+		KeyFrequencyUpdatePeriod = 1000  # in number of accesses
+	}
+}
+ErrorHandling {
+	CallUserHandlerOnFatals = true
+	NoInfiniteLoopDetection = false
+	NoInfiniteRecursionDetection = false
+	ThrowBadTypeExceptions = false
+	NoticeFrequency = 0    # 1 out of these many notices to log
+	WarningFrequency = 0   # 1 out of these many warnings to log
+	AssertActive = false
+	AssertWarning = false
+}
+Log {
+	UseLogFile = true
+	File = /var/log/hphpi
+}
+Http {
+    DefaultTimeout = 30         # in seconds
+    SlowQueryThreshold = 5000   # in ms, log slow HTTP requests as errors
+}

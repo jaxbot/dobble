@@ -1,0 +1,84 @@
+		<div id='contentwrapper'>
+			<table id='contenttable'>
+				<tr>
+					<td><div id='logocontainer'><a href='#' onClick='originalPage();'><img src='img/logo_small.png' style='position:relative;z-index:100' width='149' height='40' alt='Dobble.me'></a>
+					<div id='notificationDot' style='position:absolute;z-index:100' onClick='showNotificationsList();'>0</div></div>
+					</td>
+
+					<td><div id='userInfo'>
+							<a href='javascript:fetchPage(PAGE_PROFILE);'><img src='JS:{{userAvatar(curUser)}}' width=30 height=30 style='border:none;border-radius:2px;' alt='You'></a>
+						</div>
+						<div id='header' style='color:white;'>
+							<form name='composerform' action='service/post.php?a=JS:{{authKey}}' target='datapusher' method='POST' style='display:inline-block;padding-top:6px;'>
+				<div id='composerwrapper'>
+				<input type='text' autocomplete='off' name='composer_status' id='composer_status' style='color:#989898' value="What are you up to?" class='composer' onBlur='blurTextClick(this,50);showComposerOptions(0);' onClick='textClickHandle(this);showComposerOptions(1);' onKeyDown='showLongStory();'>
+				<span id='composeroptions' style='vertical-align:middle;margin-right:3px;display:none'>
+				<a href='javascript:;' onClick='showTimelinePhotoForm(composer_status.value);'><img src='img/pic.png'></a>
+								</span>
+								</div>
+								<input type='button' value='Share' class='share' onClick='if (validateComposer(composer_status)) { composerform.submit();composer_status.disabled=true; }'>
+
+								<div id='backdrop' onClick='hideOverlays();'></div>
+
+							</form>
+						</div>
+
+					</td>
+				</tr>
+
+				<tr>
+					<td style='vertical-align:top;width:190px;'>
+						<div class='sidebar'>
+							<a href='javascript:originalPage();' onClick='highlightThis(this);' class='sidelink' style='opacity:1' id='page_home'>Dashboard <span class='dotcount' style='float:right;display:none' id='home_unread'></span></a><br>
+							<a href='javascript:fetchPage(PAGE_FRIENDS);' onClick='highlightThis(this);' class='sidelink' id='page_friends'>Friends</a><br>
+							<a href='javascript:fetchPage(PAGE_PICTURES);' onClick='highlightThis(this);' class='sidelink' id='page_pictures'>Pictures</a><br>
+							<a href='javascript:fetchPage(PAGE_PROFILE);' onClick='highlightThis(this);' class='sidelink' id='page_profile'>JS:{{curUser}}</a><br>
+							<br><br><br>
+
+							<div id='friendsList'>JS:{{friendsListHTML()}}</div>
+						</div>
+					</td>
+					<td id='contentbody'>
+						<div id='content'>
+
+						</div>
+						<div id='origcontent'>
+							<div id='events_container' style='padding-top:5px;'></div>
+							<div id='timelinePhotoForm' class='popboxForm'>
+								<h3>Share Photos</h3>
+								<p>
+									<div class='composer'>
+									<form action='service/sharepicture.php?a=JS:{{authKey}}' target='datapusher' method='POST' enctype='multipart/form-data'>
+										<input type='file' name='photo' id='timelinePhotoForm_file' style='display:inline-block;padding:3px;color:white'>
+										<textarea name='pictureDesc' id='timelinePhotoForm_caption' class='composer'></textarea>
+										<input type='submit' class='share' value='Share' style='float:right;display:block;margin-right:3px;'>
+										<br>By posting this, you agree to the Dobble.me Terms Of Service regarding photos.
+										<br>
+									</form>
+									</div>
+									<div style='position:relative;margin:auto;display:block;width:150px;height:70px;text-align:center;padding:3px;font-size:20px;color:#676767'>
+										-or-
+										<br>
+										<input type='button' class='button' onClick='showWebcamPictureForm();' value='Take A Picture' style='margin:10px;'>
+									</div>
+
+									<div class='tipbox'>
+										Tip: You can upload pictures directly from your computer by dragging and dropping them onto your timeline.
+									</div>
+							</p>
+						</div>
+						<div id='textComposer' class='popboxForm'>
+							<form name='longform' action='service/post.php?a=JS:{{authKey}}' target='datapusher' method='POST'>
+								<textarea name='composer_status' id='composer_longStory' onKeyUp='updateCharacterCount();'></textarea><br>
+								<input type='button' style='float:right' value='Share' class='share' onClick='if (validateComposer(composer_status)) { longform.submit();composer_status.disabled=true; }'>
+								<div id='characterCount'></div>
+
+							</form>
+						</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<img alt='me' src="JS:{{staticHost + 'avatar/' + curUser}}" style='display:none'>

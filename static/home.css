@@ -1,0 +1,225 @@
+body { 
+	background-color: #3a3450;
+	background-repeat: repeat-x;
+	font-size: 12px;
+	font-family: Verdana, FreeSans;
+	padding: 0px;
+	margin: 0px;
+}
+a:link { color: #b0a5da; text-decoration: none}
+a:active { color: #b0a5da; text-decoration: none}
+a:visited { color: #b0a5da; text-decoration: none}
+a:hover { color: #b0a5fa; text-decoration: none;}
+#centerpiece {
+	display:block;width:1000px;height:600px;
+	z-index: 10;
+}
+#highlight_wrapper {
+
+	display:block;
+	position:fixed;
+	width:100%;
+	text-align:center;
+	top:100px;
+	height:100%;
+	z-index: -10;
+}
+#highlight {
+	background-repeat: no-repeat;
+	display:block;
+	width:1000px;
+	height:100%;
+	margin: auto;
+	z-index: -10;
+}
+#footer {
+	font-size: 10px;
+	position:absolute;
+	bottom:3px;
+	left:1px;
+	color: white;
+}
+#titletext {
+	font-size:37px;
+	color:white;
+	text-shadow:1px 1px 15px black;
+}
+span.paragraph {
+	font-size:19px;
+	color:white;
+	text-shadow:1px 1px 15px black;
+}
+#reqinv_email {
+	font-size: 29px;
+	border: solid 1px black;
+	border-radius: 4px;
+	color: #afafaf;
+	height: 43px;
+}
+#reqinv_submit {
+	font-size: 25px;
+	border: solid 1px black;
+	border-radius: 4px;
+	color: #ffffff;
+	height: 48px;
+	cursor:pointer;
+	background-image: url("../img/accent.png");
+	background-repeat: repeat-x;
+	background-color: #6a6289;
+}
+#dobblemascot {
+	position:fixed;
+	right:10px;
+	bottom:10px;
+}
+#alldonetext {
+	font-size:27px;
+	color:white;
+	text-shadow:1px 1px 15px black;
+}
+#btn_login {
+	position:fixed;
+	display:inline-block;
+	top:15px;
+	right:20px;
+	width:60px;
+	height:25px;
+	padding-top:5px;
+	background-color:#817b98;
+	border-radius:5px;
+	border: #908ca1 solid 1px;
+	font-size:15px;
+	cursor:pointer;
+}
+#btn_login:hover {	
+	background-color: #7a7493;
+}
+#floattext_1 {
+	font-size:33px;
+	color:white;
+	display:inline-block;
+	width:400px;
+	position:relative;
+	left:-105px;
+	top:80px;
+	text-shadow:1px 1px 15px black;
+	height:400px;
+}
+#floattext_2 {
+	font-size:19px;
+	color:white;
+	display:inline-block;
+	width:400px;
+	position:relative;
+	left:-335px;
+	top:120px;
+	text-shadow:0px 0px 8px #afafaf;
+	height:400px;
+	opacity:0;
+}
+img.bubble {
+	position:absolute;
+	left:55%;
+	top:210px;
+	opacity:0;
+}
+#userbox {
+	font-size: 23px;
+	height: 35px;
+	margin: 2px;
+	background-repeat: no-repeat;
+	border-radius: 5px;
+	border: 1px solid #7a7394;
+	padding: 2px;
+	width: 245px;
+}
+#passwordbox {
+	font-size: 23px;
+	height: 35px;
+	margin: 2px;
+	background-repeat: no-repeat;
+	border-radius: 5px;
+	border: 1px solid #7a7394;
+	padding: 2px;
+	width: 245px;
+}
+#signin_button {
+	background-color: #202020;
+	color: white;
+	border: solid 1px #111;
+	border-radius: 5px;
+	font-size: 18px;
+	font-family: Verdana;
+	width: 250px;
+	height: 35px;
+	cursor: pointer;
+}
+#createaccount_btn {
+	background-color: #ffd600;
+	background-image: url("../img/signup_btn.png");
+	border: solid 1px #ffb400;
+	border-radius: 5px;
+	font-size: 18px;
+	font-family: Verdana;
+	width: 180px;
+	height: 35px;
+	cursor: pointer;
+}
+#createaccount_btn:hover {
+	border-color: #ffd600;
+}
+div.shadowedbox {
+	width: 600px;
+	min-height: 360px;
+	border: solid 1px #4a4a4a;
+	display: block;
+	margin: 4px;
+	background-color: white;
+	border-radius: 15px; 
+	box-shadow: 1px 1px 25px #000000;
+	padding:10px;
+}
+
+input.wizardbutton {
+	background-color: #009cff;
+	background-image: url("../img/wizard_btn.png");
+	border: solid 1px #645282;
+	border-radius: 5px;
+	font-size: 18px;
+	font-family: Verdana;
+	width: 180px;
+	height: 35px;
+	cursor: pointer;
+}
+div.roundedbox {
+	display: inline-block;
+	width: 370px;
+	height: 250px;
+	background: rgba(0,0,0,0.5);
+	border-radius: 6px;
+	padding: 5px;
+	text-align: left
+}
+#header {
+	display: inline-block;
+	width: 100%;
+	height: 80px;
+	background-color: #000000;
+	background-image: url("../img/header.jpg");
+}
+div.dialoug {
+	font-family: 'VT323', cursive;
+	
+	color: white;
+	background: rgba(0,0,0,0.3);
+	
+	border-radius: 5px;
+	font-size: 25px;
+	padding: 10px;
+}
+h2 {
+	color: white;
+	margin: 3px;
+	padding: 3px;
+	margin-bottom: 10px;
+}

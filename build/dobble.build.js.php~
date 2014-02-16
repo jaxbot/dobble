@@ -1,0 +1,118 @@
+<?php
+//Dobble.me JS compression and obfuscation
+
+$RESERVED = array("flashUploadCompleteCallback", "onYouTubePlayerReady");
+$php = "";
+
+require("3rd/jsmin.php");
+function buildCSSFiles($files) {
+	$cache = "";
+	foreach ($files as $file) {
+		$data = file_get_contents($file);
+		$cache .= simpleMinCSS($data);
+	}
+	return $cache;
+}
+function buildJSFiles($files) {
+	global $php, $PHP_SOURCE_FILES;
+	
+	$cache = "";
+
+	foreach ($files as $file) {
+		$data = str_replace("\r", "", file_get_contents("static/".$file.".js"));
+		if ($data != "") {
+			$cache .= $data;
+		}
+	}
+
+	$files = $PHP_SOURCE_FILES;
+	
+	foreach ($files as $file) {
+		$data = file_get_contents($file);
+		echo $file . "\n";
+		$php .= $data;
+	}
+	exit;
+	$functions = explode("function ", $cache);
+$functions[0] = "";
+
+$vars = explode("var ", $cache);
+$vars[0] = "";
+
+$obcode = $cache;
+$obcode = ob($functions, $obcode, $cache);
+$obcode = ob($vars, $obcode, $cache);
+
+
+$obcode = _jsmin($obcode);
+
+echo "Functions: ".count($functions)."\n";
+echo "Old size: " . strlen($cache) . "\n";
+echo "Ob size: " . strlen($obcode) . "\n";
+echo "Diff: " . (strlen($cache) - strlen($obcode)) . "\n";
+	return $obcode;
+}
+
+
+
+
+
+function ob($arr, $obcode, $cache) {
+	global $php, $RESERVED;
+	
+	$i = 0;
+	$z = 0;
+	foreach ($arr as $function) {
+		list($name) = explode("(", $function);
+		list($name) = explode(" ", $name);
+		list($name) = explode(";", $name);
+		if ($name == "") continue;
+		if (strlen($name) < 3) continue;
+		echo $name . " - used " . substr_count($cache,$name) . " times\n";
+		$internalusage = substr_count($cache,$name);
+		
+		$phpusage = substr_count($php,$name);
+		//echo "$name : php: $phpusage js: $internalusage\n";
+		if ($internalusage == 1 and $phpusage == 0) {
+			echo "Warning: $name\n";
+		}
+		if ($phpusage != 0) {
+			//echo "External function: $name\n";
+			$z++;
+		} else {
+			if (!in_array($name,$RESERVED)) {
+				//ob it, just for fun
+				$id = generateObName();
+				$obcode = str_replace($name, $id, $obcode);
+			}
+		}
+		$i++;
+	}
+	return $obcode;
+}
+
+$ob = 0;
+function generateObName() {
+	global $ob;
+	
+	$id = "_".dechex($ob);
+	
+	$ob++;
+	return $id;
+}
+function _jsmin($data) {
+	$data = str_replace("\r", "", $data); //windows uses carriage returns.
+	$data = str_replace("\\\n", "", $data);
+	$data = JSMin::minify($data);
+	return $data;
+}
+function simpleMinCSS($code) {
+	$code = preg_replace("%//.*%", "", $code);
+	$code = preg_replace("%/\*(?:(?!\*/).)*\*/%s", "", $code);
+	
+	$code = str_replace("\r", "", $code);
+	$code = str_replace("\n", "", $code);
+	$code = str_replace("\t", "", $code);
+	
+	return $code;
+}

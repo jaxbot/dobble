@@ -1,0 +1,656 @@
+html { 
+	/* Fix page shift due to scroll bar */
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+body {
+	background-color: #3a3450;
+	background-image: url("img/bg.png");
+	background-repeat: repeat-x;
+	font-size: 12px;
+	font-family: Verdana, FreeSans;
+	padding: 0px;
+	margin: 0px;
+}
+
+#contentwrapper {
+	display:block;
+	width:900px;
+	margin-left:auto;
+	margin-right:auto;
+}
+#contentbody {
+	vertical-align: top;
+	width: 700px;
+	background-color: #ffffff;
+	border-radius: 10px;
+	padding: 3px;
+	min-height:900px;
+	display:inline-block;
+}
+#userInfo {
+	float:right;
+	margin-top: 6px;
+}
+
+.sidebar {
+	padding: 4px;
+	border-radius: 10px;
+	margin-left:4px;
+	width: 150px;
+}
+
+/*Sidebar*/
+a.sidelink {
+	color: #fff !important;
+	opacity: 0.3;
+	font-weight: bold;
+	font-size: 14px;
+	font-family: sans-serif;
+	margin-bottom: 10px;
+	padding-bottom: 1px;
+	display: inline-block;
+	width: 90%;
+}
+a.sidelink:hover {
+	opacity: 0.6;
+}
+
+
+/* Body */
+img {
+	border: none;
+}
+
+/* Speciality */
+div.event {
+	display: block;
+	min-height: 70px;
+	width: 680px;
+	padding-left: 4px;
+}
+span.commentcount {
+	float:right;
+	border-radius: 5px;
+	width: 25px;
+	height: 25px;
+	background-image: url("img/accent.png"); 
+	background-repeat: no-repeat;
+	text-align: center;
+	padding-top: 5px;
+	margin-top:4px;
+	color: white;
+	display: block;
+	font-family: Tahoma;
+	visibility: hidden;
+	cursor: pointer;
+}
+span.time {
+	float: right;
+	font-size: 10px;
+	color: #787878;
+}
+
+div.minievent {
+	display: block;
+	width: 220px;
+	margin-bottom: 10px;
+}
+/* Images */
+img.avatar {
+	float: left;
+	margin-right: 5px;
+	border-radius: 2px;
+	width: 50px;
+	height: 50px;
+}
+img.miniavatar {
+	width: 35px;
+	height: 35px;
+	float: left;
+	margin-right: 5px;
+	border-radius: 2px;
+}
+img.chatavatar {
+	width: 20px;
+	height: 20px;
+	vertical-align: top;
+}
+/* Form */
+input.button {
+	height: 24px;
+	border-style: solid;
+	border-width: 0px;
+	border-radius: 5px;
+	background-image: url("img/menuhighlight.png"); 
+	color: white;
+	cursor: pointer;
+}
+textarea.commentbox {
+	font-family: calibri;
+	font-size: 12px;
+	width: 240px;
+	height: 24px;
+	float: left;
+	color: #989898;
+	background-color: rgba(0,0,0,0);
+	border:none;
+}
+textarea.picturecommentbox {
+	font-family: Verdana;
+	font-size: 12px;
+	width: 340px;
+	height: 44px;
+	float: left;
+	color: #989898;
+}
+div.commentcontainer {
+overflow-y: auto; height:290px; display:block;padding-left:0px;width:240px;
+overflow-x: hidden;
+}
+div.commentcontainer::-webkit-scrollbar {
+	width: 6px;
+	background-color: transparent;
+}
+div.commentcontainer::-webkit-scrollbar-track-piece {
+	background: #323232;
+	border-radius: 9px;
+}
+div.commentcontainer::-webkit-scrollbar-thumb:vertical {
+	background: #493a50;
+	border-radius: 9px;
+}
+input.dialogButton{
+	height: 23px;
+	border-style: solid;
+	border-width: 1px;
+	cursor: pointer;
+	position: absolute;
+	bottom: 5px;
+	width: 60px;
+}
+#messageBox {
+	left: 33%;
+	top: 30%;
+	width: 500px;
+	min-height: 80px;
+	background: rgba(0,0,0,0.8);
+	color: white;
+	border-radius: 5px;
+	box-shadow: 3px 3px 15px #000;
+	position: fixed;
+	z-index: 4294967295;
+	padding: 5px;
+	opacity: 0;
+	display: none;
+}
+#messageBoxCaption {
+	font-size: 17px;
+}
+#messageBoxBody {
+	margin: 4px;
+}
+#notificationDot {
+	font-size: 16px;
+	background-color: #c40b00;
+	background-image: url("img/accent.png"); 
+	background-repeat: no-repeat;
+	width: 25px;
+	height: 25px;
+	text-align: center;
+	border-radius: 5px;
+	padding-top: 5px;
+	color: white;
+	display: none;
+	font-family: Tahoma;
+	box-shadow: 3px 3px 10px #333333;
+	cursor: pointer;
+	z-index: 901;
+	vertical-align:top;
+	margin-top:6px;
+}
+#notificationContainer {
+	position: fixed;
+	top: 40px;
+	display: none;
+	width: 250px;
+	max-height: 370px;
+	background-color: white;
+	box-shadow: 4px 4px 15px #323232;
+	border: solid 1px #676767;
+	padding: 5px;
+	z-index: 901;
+}
+
+#notificationList {
+	display: block;
+	overflow: auto;
+	max-height: 330px;
+	padding-right:4px;
+}
+#notificationList::-webkit-scrollbar {
+	width: 6px;
+	background-color: transparent;
+}
+#notificationList::-webkit-scrollbar-track-piece {
+	background: #cecece;
+	border-radius: 9px;
+}
+#notificationList::-webkit-scrollbar-thumb:vertical {
+	background: #989898;
+	border-radius: 9px;
+}
+span.notificationItem {
+	display:block;
+	min-height:50px;
+	cursor:pointer;
+	padding: 2px;
+}
+span.notificationItem:hover {
+	background-color: #e8eaef
+}
+#friendsList {
+	
+}
+span.friendNotification {
+	background-color: #e40b00;
+	width: 15px;
+	height: 15px;
+	text-align: center;
+	border-radius: 5px;
+	padding-top: 2px;
+	color: white;
+	display:inline-block;
+	font-size: 13px;
+	cursor: pointer;
+}
+#popupNotification {
+	position: fixed;
+	right: 25px;
+	bottom: 15px;
+	width: 225px;
+	height: 50px;
+	display: none;
+	cursor: pointer;
+	background-image: url("img/accent.png"); 
+	background-repeat: repeat-x;
+	color: white;
+	padding: 4px;
+	font-size: 11px;
+	z-index: 100;
+	border-radius: 4px;
+	opacity: 0;
+}
+#albumContainer {
+	display: block;
+	width: 700px;
+	position: relative;
+	left: 0px;
+}
+#imgDescriptionBox {
+	position: absolute;
+	left: 810px;
+	top: 200px;
+	width: 250px;
+	height: 300px;
+	text-align: center;
+}
+#imgDescText {
+	font-size: 17px;
+}
+
+/* Friends */
+span.activitystatus {
+	position:relative;
+	top: 50px;
+	background: rgba(0,0,0,0.5);
+	color:white;
+	padding:6px;
+	opacity:0;
+}
+span.activitystatus:hover {
+	opacity: 1;
+}
+
+span.menuname {
+	color: #585858;
+	padding: 2px;
+	padding-bottom: 6px;
+	display:block;
+}
+
+#backdrop {
+	position: fixed;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	display: none;
+	opacity: 0.7;
+	background-color: black;
+	z-index: 100;
+}
+#composerwrapper {
+	border: #676767 solid 1px;
+	background-color: #ffffff;
+	display:inline-block;
+	height:31px;
+	padding:0px;
+	padding-right: 2px;
+	width: 470px;
+}
+textarea.composer {
+	font-size: 15px;
+	width: 486px;
+	height: 54px;
+	padding: 2px;
+	font-family: Arial;
+}
+#composer_longStory {
+width: 495px;
+height: 110px;
+font-family: Verdana;
+}
+input.composer {
+
+	font-size: 15px;
+	width: 440px;
+	height: 24px;
+	padding: 2px;
+	color:#989898;
+	margin:0px;
+	border: none;
+	outline:none;
+}
+input.composer:disabled {
+	background-color: white;
+	color:#676767;
+	border: none;
+}
+input.share {
+	height: 31px;
+	margin: 0px;
+	border-style: solid;
+	border-width: 0px;
+	border-radius: 3px;
+	background-image: url("img/menuhighlight.png"); 
+	color: white;
+	cursor: pointer;
+	font-size: 14px;
+}
+div.popboxForm {
+	display:none;
+	position:fixed;
+	width: 500px;
+	left: 50%;
+	top: 150px;
+	margin-left: -250px;
+	height: 280px;
+	background:white;
+	z-index:100;
+	border: solid 1px #676767;
+	border-radius: 8px;
+	padding:4px;
+	box-shadow: 3px 3px 15px #111111;
+}
+#popupFrame {
+	display:none;
+	position:fixed;
+	width: 500px;
+	left: 50%;
+	top: 150px;
+	margin-left: -250px;
+	height: 320px;
+	background:white;
+	z-index:100;
+	border: solid 1px #676767;
+	border-radius: 4px;
+	padding:4px;
+	box-shadow: 3px 3px 8px #111111;
+}
+#ajaxerrorbox {
+	display: none;
+	position: absolute;
+	right: 5px;
+	top: 50px;
+	width: 350px;
+	height: 32px;
+	font-weight: bold;
+	background-color: #e63434;
+	padding: 3px;
+	color: white;
+}
+#ajaxUploadIndicator {
+	display: none;
+	position:fixed;
+	background: rgba(0,0,0,0.7);
+	border-radius: 10px;
+	padding:4px;
+	width: 400px;
+	height: 100px;
+	color: white;
+	text-align:center;
+	margin: -200px;
+	left: 50%;
+	top: 400px;
+	z-index: 1000;
+	box-shadow: 0px 0px 10px #000000;
+	border: solid 1px #000000;
+	padding-top:20px;
+}
+div.popup_title {
+	background-image: url("img/accent.png"); 
+	background-repeat: repeat-x;
+	font-size:15px;
+	color:white;
+	width:506px; 
+	padding-top:2px;
+	padding-left:2px;
+	height:22px;
+	background-color:#86789b;
+	margin:-4px;
+	margin-bottom: 4px;
+	display:inline-block;
+}
+
+div.sideframe_content {
+	width: 100%;
+	display: inline-block;
+	position: absolute;
+	padding: 1px;
+}
+div.sideframe_exit {
+	top: 3px;
+	right: 5px;
+	position: absolute;
+	z-index: 10;
+}
+div.sideframe_blur {
+	background-image: url("img/sideframe/blur.png");
+	position: absolute;
+	top: -4px;
+	bottom: -15px;
+	left: -7px;
+	right: -7px;
+	display: inline-block;
+	border-radius: 9px;
+}
+div.sideframe {
+	position: fixed;
+	left: 850px;
+	display: none;
+	width: 250px;
+	bottom: 15px;
+	margin: 4px;
+	height: 450px;
+	z-index: 4;
+	background: rgba(25,25,25,0.7);
+	padding: 3px;
+	border-radius: 10px;
+	border: solid 4px rgba(50,50,50,.5);
+	color:white;
+}
+
+span.systemText { /* The text style for messages a user didn't share (i.e. Shared a photo) */
+	color: #999999;
+	#font-size: 10px;
+}
+div.floatingmessage {
+	left: 33%;
+	top: 30%;
+	width: 500px;
+	min-height: 80px;
+	background-color: white;
+	border: solid 1px #676767;
+	box-shadow: 3px 3px 15px #333333;
+	position: absolute;
+	z-index: 900;
+	padding: 5px;
+	display: inline-block;
+}
+div.tab_selected {
+	margin-left:6px;
+	display: inline-block;
+	padding: 5px;
+	border-radius: 5px;
+	top: 3px;
+	position: relative;
+	color: white;
+	padding-top: 4px;
+	cursor: auto;
+	font-weight: bold;
+}
+div.tab {
+	margin-left:10px;
+	display: inline-block;
+	padding: 5px;
+	top: 3px;
+	position: relative;
+	cursor: pointer;
+}
+div.tabcontainer {
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 5px;
+	display: inline-block;
+	padding: 5px;
+	background-color: white;
+	margin-left: 4px;
+	width: 370px;
+}
+div.ytvid {
+	margin: 6px;
+}
+div.chatfriend {
+	position:relative;cursor:pointer;
+	color: #fff !important;
+	opacity: 0.3;
+	font-weight: bold;
+	font-size: 13px;
+	font-family: sans-serif;
+	margin-bottom: 10px;
+	padding-bottom: 1px;
+	display: inline-block;
+	width: 90%;
+}
+div.chatfriend:hover {
+	opacity:0.5 !important;
+}
+input.sendbutton {
+	width: 60px;
+	height: 50px;
+	border-style: solid;
+	border-width: 1px;
+}
+
+/* Photos */
+div.photobox {
+	display:block;
+	width:170px;
+	height:170px;
+	cursor: pointer;
+}
+span.photocommentcount {
+	position: relative;
+	left: 140px;
+	top: 10px;
+	border-radius: 5px;
+	width: 25px;
+	height: 25px;
+	background-image: url("img/accent.png"); 
+	background-repeat: no-repeat;
+	text-align: center;
+	padding-top: 5px;
+	color: white;
+	display: block;
+	font-family: Tahoma;
+	cursor: pointer;
+}
+
+/* Loader */
+#jumpingloader {
+	margin-left:auto;
+	margin-right:auto;
+	display: block;
+}
+
+/* Counter (used for the home sidelink) */
+span.dotcount {
+	color: white;
+	display: inline-block;
+	width: 11px;
+	height: 15px;
+	border-radius: 3px;
+	background-color: #776192;
+	padding:1px;
+	padding-left:3px;
+	margin:0px;
+	font-size: 12px;
+}
+
+h3 {
+	padding: 0px;
+	margin: 2px;
+	font-size: 17px;
+	font-weight: normal;
+}
+/* Tip boxes */
+div.tipbox {
+	border: solid 1px #3a3450;
+	background: #787093;
+	display: inline-block;
+	padding: 4px;
+	color:white;
+	background-image: url("img/accent.png"); 
+	background-repeat: repeat-x;
+}
+
+/* For composing */
+div.composer {
+	border-radius: 5px;
+	padding: 3px;
+	color:white;
+}
+
+span.href {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+#inlinepage {
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	border: none;
+	display: none;
+	z-index: 1;
+}
+
+/* Accent colors */
+a:link,a:active,a:visited,a:hover { color:#56456b; text-decoration: none}
+a.hifghlight,span.commentcount,span.photocommentcount,div.composer,input.button,#popupNotification,span.optionBarOption_selected,input.share,#userDropdown,div.tab_selected,div.tabcontainer,span.histogram {				background-color:#56456b;			}

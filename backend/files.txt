@@ -1,0 +1,12 @@
+./misskay.php
+./misskay.backend.php
+./misskay.includes.php
+../dyan/system/databasedata.php
+../dyan/system/userdata.php
+../dyan/system/historydata.php
+../dyan/system/functiondata.php
+../dyan/system/emaildata.php
+../dyan/system/searchdata.php
+../dyan/system/notificationdata.php
+../dyan/system/photodata.php
+../dyan/system/chatdata.php

@@ -1,0 +1,167 @@
+version: 0.9.6
+cmd: /var/www/dyan/index.php
+part: 1
+
+events: Time
+
+fl=php:internal
+fn=php::mysql_pconnect
+7 838
+
+fl=php:internal
+fn=php::mysql_select_db
+8 669
+
+fl=/var/www/dyan/system/databasedata.php
+fn=require::/var/www/dyan/system/databasedata.php
+1 1718
+cfn=php::mysql_pconnect
+calls=1 0 0
+7 838
+cfn=php::mysql_select_db
+calls=1 0 0
+8 669
+
+fl=/var/www/dyan/system/userdata.php
+fn=require::/var/www/dyan/system/userdata.php
+1 29
+
+fl=/var/www/dyan/system/historydata.php
+fn=require::/var/www/dyan/system/historydata.php
+1 18
+
+fl=php:internal
+fn=php::chr
+6 11
+
+fl=php:internal
+fn=php::chr
+6 5
+
+fl=php:internal
+fn=php::chr
+6 4
+
+fl=php:internal
+fn=php::chr
+6 4
+
+fl=php:internal
+fn=php::chr
+7 3
+
+fl=php:internal
+fn=php::chr
+7 4
+
+fl=/var/www/dyan/system/functiondata.php
+fn=require::/var/www/dyan/system/functiondata.php
+1 2746
+cfn=php::chr
+calls=1 0 0
+6 11
+cfn=php::chr
+calls=1 0 0
+6 5
+cfn=php::chr
+calls=1 0 0
+6 4
+cfn=php::chr
+calls=1 0 0
+6 4
+cfn=php::chr
+calls=1 0 0
+7 3
+cfn=php::chr
+calls=1 0 0
+7 4
+
+fl=/var/www/dyan/system/emaildata.php
+fn=require::/var/www/dyan/system/emaildata.php
+1 6
+
+fl=/var/www/dyan/system/notificationdata.php
+fn=require::/var/www/dyan/system/notificationdata.php
+1 14
+
+fl=/var/www/dyan/system/photodata.php
+fn=require::/var/www/dyan/system/photodata.php
+1 9
+
+fl=/var/www/dyan/system/chatdata.php
+fn=updateIsOnline
+171 23
+
+fl=/var/www/dyan/system/chatdata.php
+fn=require::/var/www/dyan/system/chatdata.php
+1 350
+cfn=updateIsOnline
+calls=1 0 0
+171 23
+
+fl=/var/www/dyan/system/globals.php
+fn=require_once::/var/www/dyan/system/globals.php
+1 6896
+cfn=require::/var/www/dyan/system/databasedata.php
+calls=1 0 0
+23 3226
+cfn=require::/var/www/dyan/system/userdata.php
+calls=1 0 0
+24 29
+cfn=require::/var/www/dyan/system/historydata.php
+calls=1 0 0
+25 18
+cfn=require::/var/www/dyan/system/functiondata.php
+calls=1 0 0
+26 2779
+cfn=require::/var/www/dyan/system/emaildata.php
+calls=1 0 0
+27 6
+cfn=require::/var/www/dyan/system/notificationdata.php
+calls=1 0 0
+28 14
+cfn=require::/var/www/dyan/system/photodata.php
+calls=1 0 0
+29 9
+cfn=require::/var/www/dyan/system/chatdata.php
+calls=1 0 0
+30 374
+
+fl=/var/www/dyan/system/databasedata.php
+fn=initSession
+4 11
+
+fl=/var/www/dyan/system/userdata.php
+fn=isLoggedIn
+6 10
+
+fl=php:internal
+fn=php::stripos
+32 10
+
+fl=/var/www/dyan/pages/home_logged_out_staging.php
+fn=require::/var/www/dyan/pages/home_logged_out_staging.php
+1 15
+
+fl=/var/www/dyan/index.php
+fn={main}
+
+summary: 18928
+
+0 5526
+cfn=require_once::/var/www/dyan/system/globals.php
+calls=1 0 0
+3 13354
+cfn=initSession
+calls=1 0 0
+4 11
+cfn=isLoggedIn
+calls=1 0 0
+6 10
+cfn=php::stripos
+calls=1 0 0
+32 10
+cfn=require::/var/www/dyan/pages/home_logged_out_staging.php
+calls=1 0 0
+38 15
+

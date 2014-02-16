@@ -1,0 +1,232 @@
+#board {
+	position: relative;
+}
+div.easeanimate {
+	-webkit-transition-timing-function: ease-out;
+	-webkit-transition-duration: 500ms;
+	-webkit-transform: scale(1);
+}
+div.easeanimate:hover {
+	-webkit-transition-timing-function: ease-out;
+	-webkit-transition-duration: 500ms;
+	-webkit-transform: scale(1.05);
+	-webkit-backface-visibility: hidden;
+}
+div.rotateleft {
+	-webkit-transform: rotate(-10deg);
+	-moz-transform: rotate(-10deg);
+}
+div.rotateright {
+	-webkit-transform: rotate(10deg);
+	-moz-transform: rotate(10deg);
+}
+div.stickynote {
+	position: absolute;
+	display: block;
+	width: 350px;
+	height: 350px;
+	padding: 30px;
+	font-size: 30px;
+	color: #242424;
+	overflow: hidden;
+}
+
+div.note {
+	position: absolute;
+	display: block;
+	width: 378px;
+	height: 290px;
+	padding: 20px;
+	padding-top: 45px;
+	font-size: 30px;
+	color: #242424;
+	overflow: hidden;
+	line-height: 30px;
+}
+
+div.boardphoto {
+	position: absolute;
+	margin: 20px;
+	margin-top: 50px;
+	background: white;
+	padding: 20px;
+	-webkit-backface-visibility: hidden;
+	box-shadow: 1px 1px 15px #000000;
+}
+
+img.boardphoto {
+	max-width: 350px;
+	max-height: 250px;
+}
+
+div.noteinfo {
+	position: absolute;
+	bottom: 30px;
+	font-size: 12px;
+	font-family: comic sans ms; 
+}
+
+div.post {
+	box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+	background: rgba(255,255,255,0.1);
+	display: inline-block;
+	position:absolute;
+	width: 355px;
+	padding: 5px;
+	min-height: 35px;
+	margin-top: 40px;
+	margin-left: 20px;
+	font-size:20px;
+	color:white;
+}
+img.postphoto {
+	position: absolute;
+	left: -10px;
+	bottom: -10px;
+}
+span.posttime {
+	font-size: 11px;
+	float:right;
+	font-family: verdana
+}
+
+#profilepicture {
+	max-width: 500px;
+	max-height: 150px;
+	border-radius: 10px;
+	float:left;
+	margin-right: 15px;
+}
+#profileheader {
+	font-family:Handlee;
+	display:block;
+	width:860px;
+	height:160px;
+	padding:20px;
+	background: url(img/profileheader.png);
+	color: white;
+	position: relative;
+}
+#toolbar {
+	padding: 3px;
+}
+#papertape {
+	background: url(img/papertape.png);
+	display:block;
+	width:150px;
+	height:100px;
+	position: absolute;
+	right: 30px;
+	top: 0px;
+	color: #676767;
+	padding: 30px;
+	padding-top: 55px;
+	font-size: 14px;
+}
+
+#controlsbar {
+	position: fixed;
+	left: 10px;
+	bottom: 10px;
+}
+img.jumpanimate {
+	cursor: pointer;
+	-webkit-transition-timing-function: ease-out;
+	-webkit-transition-duration: 100ms;
+	-webkit-transform: translateY(1px);
+}
+img.jumpanimate:hover {
+	-webkit-transition-timing-function: ease-out;
+	-webkit-transition-duration: 100ms;
+	-webkit-transform: translateY(-5px);	
+}
+
+#stickynoteEditor {
+	display: none;
+	position: fixed;
+	left: 10px;
+	bottom: 50px;
+	width: 350px;
+	height: 350px;
+	padding: 30px;
+	color: #242424;
+	overflow: hidden;
+	background: url(img/sn_y.png);
+	z-index: 100;
+}
+#noteEditor {
+	display: none;
+	position: fixed;
+	left: 10px;
+	bottom: 50px;
+	width: 378px;
+	height: 290px;
+	padding: 20px;
+	padding-top: 45px;
+	color: #242424;
+	overflow: hidden;
+	background: url(img/paper.png);
+	z-index: 100;
+}
+textarea.transparentEditor {
+	background: none;
+	border: none;
+	outline: none;
+	overflow: hidden;
+	resize:none;	
+}
+
+
+#logo {
+	position: absolute;
+}
+
+#boardResponseContainer {
+	position: relative;
+	float:right;
+	width: 300px;
+	left: -100px;
+}
+
+#coverup {
+	background: url(img/coverup.png);
+	display:block;
+	position: relative;
+	margin: auto;
+	padding:100px;
+	width:600px;
+	height:400px;
+	top: 100px;
+	z-index: 999999;
+}
+
+#settingsPane {
+	position: fixed;
+	width: 250px;
+	bottom: 0px;
+	top: 0px;
+	left: -250px;
+	background: rgba(0,0,0,0.8);
+	z-index: 10000px;
+	color: white;
+	padding:10px;
+	opacity:0;
+	background: url(img/brushedmetal.png);
+	-webkit-transition-timing-function: ease-out;
+	box-shadow: 1px 1px 15px #000;
+	-webkit-transition-duration: 400ms;
+}
+
+div.swab {
+	width: 40px;
+	height: 24px;
+	display: inline-block;
+	padding: 4px;
+	vertical-align: bottom;
+}
+input.swab {
+	width: 100px;
+	height: 24px;
+	font-size: 20px;
+	padding: 2px;
+}
